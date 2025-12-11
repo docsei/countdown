@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronómetro Móvil</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Archivo Black', sans-serif;
+      background: transparent;
+      margin: 0;
+      padding: 20px 0;
+      text-align: center;
+      color: #fff;
+    }
+
+    .kiki_headline {
+      color: #ff53a9;
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      padding: 0 10px;
+      line-height: 1.2;
+    }
+
+    /* Diseño móvil compacto */
+    .kiki_countdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      font-size: 1.6em;
+    }
+
+    .kiki_block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .kiki_box {
+      width: 55px;
+      height: 55px;
+      border: 3px solid #ff53a9;
+      border-radius: 12px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .kiki_label {
+      margin-top: 4px;
+      font-size: 0.45em;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .kiki_sep {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="kiki_headline">BOLETERÍA A LA VENTA<br>A PARTIR DEL 12 DE DICIEMBRE</div>
+
+  <div class="kiki_countdown">
+    <div class="kiki_block">
+      <div class="kiki_box" id="days"></div>
+      <div class="kiki_label">DÍAS</div>
+    </div>
+    <div class="kiki_sep">:</div>
+
+    <div class="kiki_block">
+      <div class="kiki_box" id="hours"></div>
+      <div class="kiki_label">HORAS</div>
+    </div>
+    <div class="kiki_sep">:</div>
+
+    <div class="kiki_block">
+      <div class="kiki_box" id="minutes"></div>
+      <div class="kiki_label">MIN</div>
+    </div>
+    <div class="kiki_sep">:</div>
+
+    <div class="kiki_block">
+      <div class="kiki_box" id="seconds"></div>
+      <div class="kiki_label">SEG</div>
+    </div>
+  </div>
+
+  <script>
+    const targetDate = new Date("Dec 12, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+
+      if (distance < 0) {
+        document.body.innerHTML = "<h2 style='color:#ff53a9;'>¡El evento ya comenzó!</h2>";
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
