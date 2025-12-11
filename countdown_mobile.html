@@ -25,13 +25,12 @@
       line-height: 1.2;
     }
 
-    /* Diseño móvil compacto */
+    /* 📱 Diseño móvil con separadores centrados */
     .kiki_countdown {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: center; /* centra verticalmente todo */
       gap: 6px;
-      font-size: 1.6em;
     }
 
     .kiki_block {
@@ -58,45 +57,59 @@
       margin-top: 4px;
       font-size: 0.45em;
       letter-spacing: 0.5px;
-      text-transform: uppercase;
       opacity: 0.85;
     }
 
     .kiki_sep {
-      font-size: 1.2em;
-      font-weight: bold;
+      font-size: 1.5em;
       color: #ffffff;
+      font-weight: bold;
+
+      /* 🎯 El truco para centrar */
+      height: 55px;               /* misma altura que .kiki_box */
+      display: flex;
+      align-items: center;        /* centro vertical */
+      justify-content: center;    /* centro horizontal */
+      margin: 0 2px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="kiki_headline">BOLETERÍA A LA VENTA<br>A PARTIR DEL 12 DE DICIEMBRE</div>
+  <div class="kiki_headline">
+    BOLETERÍA A LA VENTA<br>
+    A PARTIR DEL 12 DE DICIEMBRE
+  </div>
 
   <div class="kiki_countdown">
+
     <div class="kiki_block">
       <div class="kiki_box" id="days"></div>
       <div class="kiki_label">DÍAS</div>
     </div>
+
     <div class="kiki_sep">:</div>
 
     <div class="kiki_block">
       <div class="kiki_box" id="hours"></div>
       <div class="kiki_label">HORAS</div>
     </div>
+
     <div class="kiki_sep">:</div>
 
     <div class="kiki_block">
       <div class="kiki_box" id="minutes"></div>
       <div class="kiki_label">MIN</div>
     </div>
+
     <div class="kiki_sep">:</div>
 
     <div class="kiki_block">
       <div class="kiki_box" id="seconds"></div>
       <div class="kiki_label">SEG</div>
     </div>
+
   </div>
 
   <script>
@@ -127,3 +140,4 @@
 
 </body>
 </html>
+
