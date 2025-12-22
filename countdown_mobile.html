@@ -89,8 +89,9 @@
 <body>
 
   <div class="kiki_headline">
-    BOLETERÍA A LA VENTA<br>
-    A PARTIR DEL 22 DE DICIEMBRE
+    PREPÁRATE PARA<br>
+    EL PARTIDO DE LA HISTORIA<br>
+    FALTAN:
   </div>
 
   <div class="kiki_countdown">
@@ -124,7 +125,7 @@
   </div>
 
   <script>
-    const targetDate = new Date("Dec 22, 2025 10:00:00").getTime();
+    const targetDate = new Date("Jan 31, 2026 00:00:00").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
@@ -141,7 +142,7 @@
       document.getElementById("seconds").textContent = seconds;
 
       if (distance < 0) {
-        document.body.innerHTML = "<h2 style='color:#ff53a9;'>¡Boletería Disponible Ahora!</h2>";
+        document.body.innerHTML = "<h2 style='color:#ff53a9;'>¡COMENZÓ EL PARTIDO!</h2>";
       }
     }
 
